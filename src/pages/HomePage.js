@@ -1,10 +1,15 @@
 import React from 'react';
 
-function HomePage() {
+function HomePage({ user }) {
+  const username = user.name;
+
   return (
     <div>
       <h1>Homepagina</h1>
-      <h2>Welkom op dit blogplatform</h2>
+      <h2>
+        Welkom op dit blogplatform{' '}
+        {username && `: ${username}`}
+      </h2>
 
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing
