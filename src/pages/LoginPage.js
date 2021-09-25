@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 function LoginPage({ setLogin, login, setUser }) {
   const { register, handleSubmit } = useForm();
+
   const history = useHistory();
 
   const onSubmitForm = (data) => {
@@ -19,9 +20,9 @@ function LoginPage({ setLogin, login, setUser }) {
         user.username === data.username &&
         user.password === data.password
     );
-    setUser(...loggedInUser);
+    auth && setUser(...loggedInUser);
     auth && setLogin(!login);
-    history.push('./');
+    auth && history.push('./');
   };
 
   return (
@@ -32,13 +33,18 @@ function LoginPage({ setLogin, login, setUser }) {
         <label htmlFor='username'>Username</label>
         <input
           type='text'
-          {...register('username')}
+          {...register('username', {
+            required: 'Username is required',
+          })}
           id='username'
         />
+
         <label htmlFor='password'>Password</label>
         <input
           type='password'
-          {...register('password')}
+          {...register('password', {
+            required: 'Username is required',
+          })}
           id='password'
         />
         <div>
