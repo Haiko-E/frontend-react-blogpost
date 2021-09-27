@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: orange;
+}
+
+.active-link {
+  border-bottom: 2px solid white;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.container {
+  padding: 15px;
+  text-align: center;
+}
+
+.container ul,
+a {
+  list-style: none;
+  text-decoration: none;
+}
